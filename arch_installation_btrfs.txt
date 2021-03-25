@@ -1,0 +1,23 @@
+-- post installation --
+vim /etc/snapper/configs/root
+#add `jamespll` in ALLOW_USERS=""
+
+chmod a+rx /.snapshots/
+systemctl start snapper-timeline.timer
+systemctl enable snapper-timeline.timer
+systemctl enable snapper-cleanup.timer
+systemctl start snapper-cleanup.timer
+
+systemctl start grub-btrfs.path
+systemctl enable grub-btrfs.path
+
+
+
+
+
+
+
+
+
+
+
