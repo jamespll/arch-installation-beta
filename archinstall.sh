@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pacman -Syyy
 pacman -S reflector
 reflector -c Brazil -a 6 --sort rate --save /etc/pacman.d/mirrorlist
@@ -34,31 +36,7 @@ mount /dev/sda1 /mnt/boot
 
 pacstrap /mnt base linux linux-firmware vim snapper
 
+chmod +x archchroot_installer.sh
+cp archchroot_installer.sh /mnt/archchroot_installer.sh
 genfstab -U /mnt 	>> /mnt/etc/fstab
-arch-chroot /mnt --
-
-ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
-hwclock --systohc
-
-echo "jamespll-arch" >> /etc/hostname
-echo -e "\n127.0.0.1\tlocalhost\n::1\t\tlocalhost\n127.0.1.1\tjamespll-arch.localdomain\tjamespll-arch" >> /etc/hosts
-
-passwd
-
-pacman -S grub grub-btrfs efibootmgr networkmanager network-manager-applet wireless_tools wpa_supplicant dialog os-prober mtools dosfstools base-devel linux-headers reflector xorg gdm xf86-video-qxl xf86-video-intel gnome firefox xdg-utils
-
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
-grub-mkconfig -o /boot/grub/grub.cfg
-systemctl enable NetworkManager
-
-useradd -mG wheel jamespll
-passwd jamespll
-echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
-
-systemctl enable gdm
-
-umount /.snapshots/
-rm -rf /.snapshots/
-snapper -c root create-config /
-
-echo "Installation complete!"
+arch-chroot /mnt ./archchroot_installer.sh
