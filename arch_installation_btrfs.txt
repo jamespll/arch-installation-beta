@@ -16,6 +16,11 @@ systemctl start snapper-cleanup.timer
 systemctl start grub-btrfs.path
 systemctl enable grub-btrfs.path
 
+#reboot
+
+snapper -c root create -c timeline --description "After Install"
+
+
 
 
 
