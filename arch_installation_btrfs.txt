@@ -1,4 +1,9 @@
 -- post installation --
+
+umount /.snapshots/
+rm -rf /.snapshots/
+snapper -c root create-config /
+
 vim /etc/snapper/configs/root
 #add `jamespll` in ALLOW_USERS=""
 
