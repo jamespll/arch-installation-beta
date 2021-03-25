@@ -4,13 +4,10 @@ reflector -c Brazil -a 6 --sort rate --save /etc/pacman.d/mirrorlist
 pacman -Syyy
 timedatectl set-ntp true
 
-parted --script /dev/sda --
-	mklabel gpt --
-	mkpart "EFI system partition" fat32 1MiB 261MiB --
-	set 1 esp on --
-	mkpart "swap partition" linux-swap 261MiB 2309MiB --
-	mkpart "root partition" btrfs 2309MiB 100% --
-	quit --
+parted /dev/sda mklabel gpt mkpart "EFI system partition" fat32 1MiB 261MiB 
+parted /dev/sda mkpart "swap partition" linux-swap 261MiB 2309MiB 
+parted /dev/sda mkpart "root partition" btrfs 2309MiB 100%
+parted /dev/sda	set 1 esp on
 
 mkfs.fat -F32 /dev/sda1
 mkswap /dev/sda2
@@ -37,7 +34,7 @@ mount /dev/sda1 /mnt/boot
 pacstrap /mnt base linux linux-firmware vim snapper
 
 genfstab -U /mnt 	>> /mnt/etc/fstab
-arch-chroot /mnt \
+arch-chroot /mnt --
 
 ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 hwclock --systohc
