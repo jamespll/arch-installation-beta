@@ -22,7 +22,3 @@ passwd jamespll
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 
 systemctl enable gdm
-
-umount /.snapshots/
-rm -rf /.snapshots/
-snapper -c root create-config /
