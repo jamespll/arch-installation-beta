@@ -16,9 +16,16 @@ systemctl start snapper-cleanup.timer
 systemctl start grub-btrfs.path
 systemctl enable grub-btrfs.path
 
-#reboot
+# -- reboot --
 
 snapper -c root create -c timeline --description "After Install"
+
+sudo pacman -Syu
+sudo pacman -S snap-pac
+
+# -- install paru from the aur, enable color in /etc/pacman.conf & BottomUp and filemanager in /etc/paru.conf --
+
+
 
 
 
