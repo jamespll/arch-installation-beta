@@ -1,32 +1,40 @@
--- post installation --
-
+#### post installation #####
+ 
+# create snapper config
 umount /.snapshots/
 rm -rf /.snapshots/
 snapper -c root create-config /
 
+# allow permissions on snapper: add 'jamespll' in ALLOW_USERS=""
+# e.g: ALLOW_USERS="jamespll"
 vim /etc/snapper/configs/root
-#add `jamespll` in ALLOW_USERS=""
 
+# configure snapshots timeline and grub
 chmod a+rx /.snapshots/
 systemctl start snapper-timeline.timer
 systemctl enable snapper-timeline.timer
 systemctl enable snapper-cleanup.timer
 systemctl start snapper-cleanup.timer
-
 systemctl start grub-btrfs.path
 systemctl enable grub-btrfs.path
 
-# -- reboot --
+# reboot
+# sudo reboot -h now
 
+# create the first snapshot on the system
 snapper -c root create -c timeline --description "After Install"
 
+# update and install pacman hook
 sudo pacman -Syu
 sudo pacman -S snap-pac
 
-# -- install paru from the aur, enable color in /etc/pacman.conf & BottomUp and filemanager in /etc/paru.conf --
+# install paru from the aur
+sudo pacman -S --needed base-devel
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
 
-
-
+# enable color in /etc/pacman.conf & BottomUp and filemanager in /etc/paru.conf
 
 
 
