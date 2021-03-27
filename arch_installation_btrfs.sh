@@ -39,6 +39,10 @@ makepkg -si
 
 # enable color in /etc/pacman.conf & BottomUp and filemanager in /etc/paru.conf
 
+# change current theme to breeze in sddm
+sudo vim /usr/lib/sddm/sddm.conf.d/default.conf
+
+
 
 
 
