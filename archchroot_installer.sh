@@ -11,7 +11,7 @@ echo -e "\n127.0.0.1\tlocalhost\n::1\t\tlocalhost\n127.0.1.1\tjamespll-arch.loca
 
 passwd
 
-pacman -S grub grub-btrfs efibootmgr networkmanager wireless_tools wpa_supplicant dialog os-prober mtools dosfstools base-devel linux-headers reflector xorg xf86-video-qxl mesa xdg-utils firefox bat ranger curl wget plasma sddm konsole dolphin okular gwenview
+pacman -S grub grub-btrfs efibootmgr networkmanager wireless_tools wpa_supplicant dialog os-prober mtools dosfstools base-devel linux-headers reflector xorg xf86-video-qxl mesa xdg-utils firefox bat ranger curl wget plasma sddm libdbusmenu-glib konsole dolphin okular gwenview
 
 #intel: xf86-video-intel libgl
 #amd: xf86-video-amdgpu
