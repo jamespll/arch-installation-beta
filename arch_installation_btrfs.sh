@@ -22,7 +22,7 @@ systemctl enable --now snapper-cleanup.timer
 systemctl enable --now grub-btrfs.path
 
 # reboot
-# sudo reboot -h now
+sudo reboot -h now
 
 # create the first snapshot on the system
 snapper -c root create -c timeline --description "After install"
@@ -38,6 +38,8 @@ cd paru
 makepkg -si
 
 # enable color in /etc/pacman.conf & BottomUp and filemanager in /etc/paru.conf
+sudo vim /etc/pacman.conf
+sudo vim /etc/paru.conf
 
 # change current theme to breeze in sddm
 sudo vim /usr/lib/sddm/sddm.conf.d/default.conf
