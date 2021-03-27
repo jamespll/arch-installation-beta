@@ -25,4 +25,4 @@ useradd -mG wheel jamespll
 passwd jamespll
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 
-systemctl enable gdm
+systemctl enable sddm
