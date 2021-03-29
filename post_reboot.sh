@@ -44,6 +44,8 @@ sudo vim /etc/paru.conf
 # change current theme to breeze in sddm
 sudo vim /usr/lib/sddm/sddm.conf.d/default.conf
 
+#install fonts 
+sudo pacman -Sy noto-fonts noto-fonts-emoji
 
 
 
