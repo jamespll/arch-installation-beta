@@ -34,7 +34,7 @@ mount -o noatime,compress=lzo,space_cache,subvol=@snapshots /dev/sda3 /mnt/.snap
 
 mount /dev/sda1 /mnt/boot
 
-pacstrap /mnt base linux linux-firmware vim snapper
+pacstrap /mnt base base-devel linux linux-firmware linux-zen vim snapper
 
 chmod +x install_chroot.sh
 cp install_chroot.sh /mnt/install_chroot.sh
