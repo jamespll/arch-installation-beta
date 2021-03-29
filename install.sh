@@ -36,7 +36,7 @@ mount /dev/sda1 /mnt/boot
 
 pacstrap /mnt base linux linux-firmware vim snapper
 
-chmod +x archchroot_installer.sh
-cp archchroot_installer.sh /mnt/archchroot_installer.sh
-genfstab -U /mnt 	>> /mnt/etc/fstab
-arch-chroot /mnt ./archchroot_installer.sh
+chmod +x install_chroot.sh
+cp install_chroot.sh /mnt/install_chroot.sh
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt ./install_chroot.sh
