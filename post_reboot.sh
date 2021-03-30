@@ -47,6 +47,11 @@ sudo vim /usr/lib/sddm/sddm.conf.d/default.conf
 #install fonts 
 sudo pacman -Sy noto-fonts noto-fonts-emoji
 
+#setup bluetooth
+sudo pacman -Sy bluez bluez-utils
+modprobe btusb
+sudo systemctl enable --now bluetooth.service
+
 
 
 
