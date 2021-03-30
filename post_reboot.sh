@@ -48,7 +48,7 @@ sudo vim /usr/lib/sddm/sddm.conf.d/default.conf
 sudo pacman -Sy noto-fonts noto-fonts-emoji
 
 #setup bluetooth
-sudo pacman -Sy bluez bluez-utils
+sudo pacman -Sy bluez bluez-utils pulseaudio-alsa pulseaudio-bluetooth
 modprobe btusb
 sudo systemctl enable --now bluetooth.service
 sudo mv BCM43142A0-105b-e065.hcd /lib/firmware/brcm
