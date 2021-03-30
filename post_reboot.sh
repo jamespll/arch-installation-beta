@@ -51,8 +51,7 @@ sudo pacman -Sy noto-fonts noto-fonts-emoji
 sudo pacman -Sy bluez bluez-utils
 modprobe btusb
 sudo systemctl enable --now bluetooth.service
-
-
+sudo mv BCM43142A0-105b-e065.hcd /lib/firmware/brcm
 
 
 
