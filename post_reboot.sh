@@ -53,6 +53,10 @@ modprobe btusb
 sudo systemctl enable --now bluetooth.service
 sudo mv BCM43142A0-105b-e065.hcd /lib/firmware/brcm
 
+# kde plasma digital clock settings
+# on line 58, change min height to 8
+sudo vim /usr/share/plasma/plasmoids/org.kde.plasma.digitalclock/contents/ui/DigitalClock.qml
+
 
 
 
